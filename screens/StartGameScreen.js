@@ -14,7 +14,7 @@ function StartGameScreen() {
     const resetInputHandler = () => {
         setEnteredNumber('')
     }
-
+    
     const confirmInputHandler = () => {
         const chosenNumber = parseInt(enteredNumber);
         if (isNaN(chosenNumber) || chosenNumber <= 0 || chosenNumber > 99) {
