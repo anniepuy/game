@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
         shadowRadius: 6,
         shadowOpacity: .25,
         elevation: 4,
-        backgroundColor: '#4e0329'
+        backgroundColor: '#3b021f'
     },
     numberInput: {
         height: 50,
