@@ -1,4 +1,5 @@
 import { View, Text, StyleSheet } from 'react-native';
+import { useState } from 'react';
 import Title from '../components/Title';
 import Colors from '../constants/colors';
 
@@ -12,7 +13,11 @@ function generateRandomBetween(min, max, exclude) {
     }
 }
 
-function GameScreen() {
+//userNumber is accepted as props 
+function GameScreen({userNumber}) {
+    const initialGuess = generateRandomBetween(1, 100, userNumber );
+    const [currentGuess, setCurrentGuess] = useState();
+
     return (
         <View style={styles.screen}>
             <Title>Opponent's Guess</Title>
