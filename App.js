@@ -5,13 +5,21 @@ import StartGameScreen from './screens/StartGameScreen';
 import GameScreen from './screens/GameScreen';
 import Colors from './constants/colors.js';
 import GameOverScreen from './screens/GameOverScreen';
+import { useFonts } from 'expo-font';
 
 export default function App() {
   const [userNumber, setUserNumber] = useState();
   const [gameIsOver, setGameIsOver] = useState(true);
 
+    //adding google fonts via useFonts w/ an idenfiyer 
+  useFonts ({
+    'open-sans': require('./assets/fonts/OpenSans-Regular.ttf'),
+    'open-sans-bold': require('./assets/fonts/OpenSans-Bold.ttf')
+  });
+
   function pickedNumberHandler(pickedNumber) {
     setUserNumber(pickedNumber);
+    setGameIsOver(false);
   }
 
   function gameOverHandler() {
