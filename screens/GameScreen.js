@@ -22,19 +22,22 @@ let maxBoundary = 100;
 function GameScreen({userNumber}) {
     const initialGuess = generateRandomBetween(minBoundary, maxBoundary, userNumber );
     const [currentGuess, setCurrentGuess] = useState(initialGuess);
-    //sets a limit that the human cannot lie and cause an infinite loop
-    if (
-        (direction === 'lower' && currentGuess < userNumber) ||
-        (direction === 'greate' && currentGuess > userNumber) 
-    ){
-        Alert.alert("Don't lie! You know this is wrong!", [
-            { text: 'Sorry!', style: 'cancel'},
-        ]);
-        return;
-    }
+    };
 
     function nextGuessHandler(direction) {
         //lower or greater is direction value
+        //sets a limit that the human cannot lie and cause an infinite loop
+        if (
+            (direction === 'lower' && currentGuess < userNumber) ||
+            (direction === 'greater' && currentGuess > userNumber) 
+        ) {
+            Alert.alert("Don't lie! You know this is wrong!", 
+            [
+                { text: 'Sorry!', style: 'cancel'},
+            ]);
+            return;
+        }
+    
         if (direction === 'lower') {
             maxBoundary  = currentGuess; 
         } else {
